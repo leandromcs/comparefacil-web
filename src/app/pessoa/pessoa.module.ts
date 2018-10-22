@@ -4,10 +4,13 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
-
  import {PessoaComponent} from '../pessoa/pessoa.component';
+ import {TableModule} from 'primeng/table';
+ import {CardModule} from 'primeng/card';
 
- import {pessoaRoute} from '../pessoa/pessoa.route';
+
+
+// import {pessoaRoute} from '../pessoa/pessoa.route';
 
 
 
@@ -16,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     HttpModule,
     FormsModule,
-   RouterModule.forChild(pessoaRoute),
+    TableModule,
+    CardModule
+  // RouterModule.forChild(pessoaRoute)
   ],
   declarations: [
    PessoaComponent,

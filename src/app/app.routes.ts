@@ -1,14 +1,18 @@
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
+import { PessoaComponent } from './pessoa/pessoa.component';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
 
 // import { LoginComponent } from './login/login.component';
 // import { LoginSuccessComponent } from './login-success/login-success.component';
 // import { LogoutComponent } from './logout/logout.component';
 // import { DiarioErrosComponent } from './diario-erros/diario-erros.component';
 
-export const routes: Routes = [
-  { path: 'pessoa', loadChildren: 'app/pessoa/pessoa.module#PessoaModule' },
-  
+ const APP_ROUTES: Routes = [
+
+  { path: '', component: HomeComponent },
+  { path: 'pessoa', component: PessoaComponent },
 ];
 
-export const AppRoutes: ModuleWithProviders = RouterModule.forRoot(routes);
+export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

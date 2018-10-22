@@ -8,7 +8,9 @@ export class PessoaComponent implements OnInit {
 
   constructor() { }
 
+  item: any[];
   ngOnInit() {
+    this.item = [{"nome":"Paulo Junior"}]
   }
 
 }

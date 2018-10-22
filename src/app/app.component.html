@@ -1,21 +1,29 @@
-<h3>Sample Layout</h3>
+
 <div class="ui-g">
+    <div class="ui-g-12" style="background-color: lightblue">
+      <p>
+          COMPARE FÁCIL
+          <i class="topbar-icon material-icons">perm_identity</i>
+      </p>
+        
+    </div>
   <!-- Menu -->
     <div class="ui-g-12 ui-md-2">
       <app-menu></app-menu>
     </div>
-
-    <div class="ui-g-12 ui-md-10 ui-g-nopad">
-        <div class="ui-g-12" style="background-color: lightblue">
-           <app-topbar></app-topbar>
-        </div>
+    <div class="ui-g-12 ui-md-10 ui-g-nopad">    
         <!-- cORPO -->
-        <div class="ui-g-12 ui-g-nopad">
+        <div class="ui-g-12 ui-md-12">
             <router-outlet></router-outlet>
         </div>
     </div>
     <div class="ui-g-12">
-        Footer
+        <div class="footer">
+            <p-card>
+              <!-- <app-version-tag cssClass="footer-text-left"></app-version-tag> -->
+              <span >1.0 - Compare Fácil - All Rights Reserved</span>
+            </p-card>
+        </div>
     </div>
 </div>
 

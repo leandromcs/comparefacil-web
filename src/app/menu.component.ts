@@ -12,19 +12,19 @@ export class MenuComponent implements OnInit {
 
     this.items = [
        {
-                label: 'File',
-                icon: 'pi pi-pw pi-file',
+                label: 'Menu',
+                icon: 'pi pi-th-large',
                 items: [{
-                        label: 'New', 
+                        label: 'Acessar', 
                         icon: 'pi pi-fw pi-plus',
                         items: [
-                            {label: 'User', icon: 'pi pi-fw pi-user-plus'},
-                            {label: 'Filter', icon: 'pi pi-fw pi-filter'}
+                            {label: 'Pessoa', icon: 'pi pi-fw pi-external-link', routerLink:'/pessoa'}
                         ]
                     },
-                    {label: 'Open', icon: 'pi pi-fw pi-external-link'},
+                    {label: 'Login', icon: 'pi pi-fw pi-external-link'},
                     {separator: true},
-                    {label: 'Quit', icon: 'pi pi-fw pi-times'}
+                    {label: 'Logout', icon: 'pi pi-fw pi-times'},
+                    {label: 'Inicio',icon: '', routerLink:'/'}
                 ]
             }
          
