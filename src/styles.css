@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+/* background: hsla(0, 0%, 95%, 1); */
+background: #694DB5;
+font-size: 15px;
+font-family: 'Roboto', sans-serif;
+}
+
+input{
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+}
+
+
+
+/* Tables */
+
+
+body .ui-table .ui-table-thead > tr > th{
+    background-color:#333333;
+}
+

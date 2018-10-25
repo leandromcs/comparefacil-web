@@ -1,3 +1,5 @@
+import { PessoaModule } from './pessoa/pessoa.module';
+import { PessoaService } from './pessoa/pessoa.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routes } from './app.routes';
@@ -13,6 +15,7 @@ import { PrimeTemplate,
          ConfirmationService
        }from 'primeng/primeng';
 import {SidebarModule} from 'primeng/sidebar';
+import { HttpModule } from '@angular/http';
 import {PRIMENG_IMPORTS} from './primeng-imports';
 import { MenuComponent } from './menu.component';
 import { TopbarComponent } from './topbar.component';
@@ -20,7 +23,13 @@ import { PessoaComponent } from './pessoa/pessoa.component';
 import {CardModule} from 'primeng/card';
 import { HomeComponent } from './home/home.component';
 import {DataViewModule} from 'primeng/dataview';
-import {MDCTextField} from '@material/textfield';
+import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './navbar.component';
+import {InputTextModule} from 'primeng/inputtext';
+import {ButtonModule} from 'primeng/button';
+import {CalendarModule} from 'primeng/calendar';
+
+
 
 
 @NgModule({
@@ -28,12 +37,15 @@ import {MDCTextField} from '@material/textfield';
     AppComponent,
     MenuComponent,
     TopbarComponent,
-    PessoaComponent,
     HomeComponent,
+    NavbarComponent,
+
     
     ],
   imports: [
-    MDCTextField,
+    ButtonModule,
+    CalendarModule,
+    InputTextModule,
     DataViewModule,
     BrowserAnimationsModule,
     TableModule,
@@ -42,12 +54,14 @@ import {MDCTextField} from '@material/textfield';
     PanelMenuModule,
     BrowserModule,
     routes,
+    HttpClientModule,
+    HttpModule,
     AccordionModule,
     PRIMENG_IMPORTS,
     
     
   ],
-  providers: [ConfirmationService],
+  providers: [ConfirmationService,PessoaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { PessoaModule } from './pessoa/pessoa.module';
 import { Routes, RouterModule } from '@angular/router';
 import { ModuleWithProviders } from '@angular/core';
 import { PessoaComponent } from './pessoa/pessoa.component';
@@ -12,7 +13,7 @@ import { HomeComponent } from './home/home.component';
  const APP_ROUTES: Routes = [
 
   { path: '', component: HomeComponent },
-  { path: 'pessoa', component: PessoaComponent },
+  { path: 'pessoa', loadChildren: './pessoa/pessoa.module#PessoaModule'},
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);
