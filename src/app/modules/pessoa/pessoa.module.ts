@@ -13,6 +13,10 @@ import { PessoaFormComponent } from './pessoa.form.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
+import { PessoaDetailComponent } from './pessoa.detail.component';
+import {DialogModule} from 'primeng/dialog';
+import {BlockUIModule} from 'primeng/blockui';
+import {NgxMaskModule} from 'ngx-mask'
 
 
 
@@ -27,12 +31,16 @@ import {CalendarModule} from 'primeng/calendar';
     HttpClientModule,
     FormsModule,
     TableModule,
-    CardModule
+    CardModule,
+    DialogModule,
+    BlockUIModule,
+    NgxMaskModule
 
   ],
   declarations: [
    PessoaComponent,
-   PessoaFormComponent
+   PessoaFormComponent,
+   PessoaDetailComponent
 
   ],
   providers: [PessoaService],

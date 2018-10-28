@@ -18,7 +18,15 @@ export class MenuComponent implements OnInit {
                         label: 'Acessar', 
                         icon: 'pi pi-fw pi-plus',
                         items: [
-                            {label: 'Pessoa', icon: 'pi pi-fw pi-external-link', routerLink:'/pessoa'}
+                            {label: 'Pessoa', icon: 'pi pi-fw pi-external-link', routerLink:'/pessoa'},
+                            {
+                               label: 'Provedor',
+                               icon: 'pi pi-fw pi-external-link',
+                               items:[
+                                      {label: 'Cadastrar uma Provedora', icon: 'pi pi-fw pi-external-link', routerLink:'/provedor/new'}
+                                    ]
+                            }
+                            
                         ]
                     },
                     {label: 'Login', icon: 'pi pi-fw pi-external-link'},

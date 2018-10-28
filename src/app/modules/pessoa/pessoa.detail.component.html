@@ -1,0 +1,53 @@
+<div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <p-card>
+            <form role="form"(ngSubmit)="save()">
+              <div class="ui-g form-group">
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                    <input  type="text" size="30" [value]="pessoa.nome" name="nome" pInputText>
+                    <label for="float-input">Nome</label>
+                  </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                    <input  type="text" size="30" [value]="pessoa.cpf" name="cpf" pInputText >
+                    <label for="float-input">CPF</label>
+                  </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                    <input type="text" size="30" [value]="pessoa.email" name="email" pInputText >
+                    <label for="float-input">Email</label>
+                  </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                    <input  type="password" size="30" [value]="pessoa.password" name="password" pInputText >
+                    <label for="float-input">Password</label>
+                  </span>
+                </div>
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                      <input size="30" [value]="pessoa.dataNascimento" name="dataNascimento" pInputText >
+                    <label for="float-input">Data de Nascimento</label>
+                  </span>
+                </div>       
+                <div class="ui-g-12 ui-md-6">
+                  <span class="ui-float-label">
+                      <input size="30" [value]="pessoa.dataUltimo" name="dataUltimo" pInputText >
+                    <label for="float-input">Data de Último</label>
+                  </span>
+                </div>
+              </div>
+              <br>
+              <div class="ui-g">
+                <div class="ui-g-12 ui-md-2">
+                  <button pButton type="button" label="Voltar" routerLink="/pessoa"></button>
+                  <button pButton type="button" label="Cadastrar" routerLink="new" *ngIf=""></button> 
+                </div>
+              </div>
+            </form>
+          </p-card>
+        </div>
+      </div>

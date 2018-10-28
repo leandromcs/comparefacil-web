@@ -1,5 +1,6 @@
-import { PessoaModule } from './pessoa/pessoa.module';
-import { PessoaService } from './pessoa/pessoa.service';
+import { PessoaService } from './modules/pessoa/pessoa.service';
+import { HomeComponent } from './modules/home/home.component';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routes } from './app.routes';
@@ -19,15 +20,19 @@ import { HttpModule } from '@angular/http';
 import {PRIMENG_IMPORTS} from './primeng-imports';
 import { MenuComponent } from './menu.component';
 import { TopbarComponent } from './topbar.component';
-import { PessoaComponent } from './pessoa/pessoa.component';
+
 import {CardModule} from 'primeng/card';
-import { HomeComponent } from './home/home.component';
+
 import {DataViewModule} from 'primeng/dataview';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './navbar.component';
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
+import {DialogModule} from 'primeng/dialog';
+import {BlockUIModule} from 'primeng/blockui';
+import {NgxMaskModule} from 'ngx-mask';
+import { ProvedorComponent } from './modules/provedor/provedor.component';
 
 
 
@@ -39,6 +44,7 @@ import {CalendarModule} from 'primeng/calendar';
     TopbarComponent,
     HomeComponent,
     NavbarComponent,
+    
 
     
     ],
@@ -57,6 +63,9 @@ import {CalendarModule} from 'primeng/calendar';
     HttpClientModule,
     HttpModule,
     AccordionModule,
+    DialogModule,
+    BlockUIModule,
+    NgxMaskModule.forRoot(),
     PRIMENG_IMPORTS,
     
     

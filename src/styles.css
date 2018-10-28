@@ -16,7 +16,10 @@ input{
 /* Tables */
 
 
-body .ui-table .ui-table-thead > tr > th{
-    background-color:#333333;
-}
+/* body .ui-table .ui-table-thead > tr > th
+    /* background-color:#333333; */
+/* */
 
+.pi{
+    font-size: 2em;
+}

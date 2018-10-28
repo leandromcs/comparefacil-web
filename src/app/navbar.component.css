@@ -35,7 +35,7 @@
     -ms-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     -o-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
-    border-radius: 3px;
+    border-radius: 5px;
   }
   
   .nav-fostrap ul {
@@ -52,13 +52,13 @@
     display: inline-block;
     position: relative;
     font-size: 14;
-    color: #def1f0;
+    color: black;
   }
   
   .nav-fostrap li a {
     padding: 15px 20px;
     font-size: 14;
-    color: #def1f0;
+    color: black;
     display: inline-block;
     outline: 0;
     font-weight: 400;
@@ -151,7 +151,7 @@
       left: 100px;
       right: 100px;
       text-align: center;
-      color: #FFF;
+      color: black;
   }
   .nav-fostrap.visible {
     left: 0px;
@@ -210,7 +210,7 @@
   
   .nav-fostrap li a {
     display: block;
-    color: #fff;
+    color:black;
     font-weight: 600;
   }
   
@@ -219,15 +219,15 @@
   .nav-fostrap li ul.dropdown { position: relative; }
   
   .nav-fostrap li ul.dropdown li a {
-    background: #fff !important;
+    background: black !important;
     border-bottom: none;
-    color: #fff !important;
+    color: black !important;
   }
   
 
   .nav-fostrap li ul.dropdown li:hover a {
     background: rgba(0,0,0,.1) !important;
-    color: #fff !important;
+    color: black !important;
   }
   
   .nav-fostrap li ul.dropdown li a { padding: 10px 10px 10px 30px; }
@@ -260,5 +260,8 @@
     top: 0;
     right: 0;
     left: 0;
+  }
+  element.style {
+    background-color: transparent !important
   }
 }
