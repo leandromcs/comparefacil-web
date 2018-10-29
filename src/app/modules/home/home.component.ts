@@ -38,4 +38,8 @@ export class HomeComponent implements OnInit {
     event.preventDefault();
   }
 
+  concluir(){
+    this.displayDialog = false;
+  }
+
 }
