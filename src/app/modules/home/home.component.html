@@ -1,4 +1,4 @@
-<p-dataView #dv [value]="colaboracoes" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="brand"
+<p-dataView #dv [value]="colaboracoes" [paginator]="true" [rows]="20" paginatorPosition="both" filterBy="descricao"
     [sortField]="sortField" [sortOrder]="sortOrder">
     <p-header>
         <div class="ui-helper-clearfix">
@@ -8,7 +8,7 @@
                 </div>
                 <div class="ui-g-6 ui-md-4 filter-container">
                     <div style="position:relative">
-                        <input type="search" pInputText placeholder="Search by brand" (keyup)="dv.filter($event.target.value)">
+                        <input type="search" pInputText placeholder="Pesquise aqui" (keyup)="dv.filter($event.target.value)">
                     </div>
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
@@ -26,13 +26,13 @@
             <div class="ui-g-12 ui-md-8 car-details">
                 <div class="ui-g">
                     <div class="ui-g-2 ui-sm-6">Plano: </div>
-                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico}}</b></div>
+                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico.nome}}</b></div>
 
                     <div class="ui-g-2 ui-sm-6">Descricao:</div>
-                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico}}</b></div>
+                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico.descricao}}</b></div>
 
                     <div class="ui-g-2 ui-sm-6">Data: </div>
-                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.dataCriacao}}</b></div>
+                    <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.dataCriacao | date:'dd/MM/yyyy'}}</b></div>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-1 search-icon">
@@ -51,7 +51,7 @@
         </div>
     </ng-template> -->
 </p-dataView>
-<p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()" width="500" height="100">
+<p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()" [width]="1100" [height]="100">
         <div class="ui-g" *ngIf="colaboracaoSelecionada">
             <!-- <div class="ui-g-12" style="text-align:center">
                 <img src="assets/showcase/images/demo/car/{{selectedCar.brand}}.png">
@@ -63,8 +63,21 @@
             <div class="ui-g-8">{{colaboracaoSelecionada.descricao}}</div>
     
             <div class="ui-g-4">Data:  </div>
-            <div class="ui-g-8">{{colaboracaoSelecionada}}</div>
-    
+            <div class="ui-g-8">{{colaboracaoSelecionada.dataCriacao | date:'dd/MM/yyyy'}}</div>
+            <div class="ui-g">
+            <div clas ="ui-g-4">Comentários: </div>
+            <div class="ui-g-12 ui-md-4">
+                <p-scrollPanel [style]="{width: '800px', height: '200px'}">
+                    <div>
+                            <p-fieldset *ngFor="let comentario of comentarios">
+                                {{comentario.descricao}}
+                            </p-fieldset>
+                    </div>          
+                </p-scrollPanel>
+            </div>
+         </div>
+         <div class="ui-g-4">Fazer um comentário:  </div>
+         <div class="ui-g-12"><textarea [rows]="5" [cols]="130"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao"></textarea></div>
         </div>
         <p-footer>
                 <button pButton type="button" label="Confirmar" (click)="concluir()"></button>

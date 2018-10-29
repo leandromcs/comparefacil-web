@@ -2,7 +2,7 @@ import { PlanoServico } from './../plano/plano.model';
 import { Provedor } from './../provedor/provedor.model';
 import { Pessoa } from './../pessoa/pessoa.model';
 import { Data } from '@angular/router';
-export class Colaboracao{
+export class Colaboracao {
 
     constructor(
     public id?: number,
@@ -12,8 +12,7 @@ export class Colaboracao{
     public aprovado?: string,
     public versao?: string,
     public dataAtualizacao?: Data,
-    public pessoa?:Pessoa,
-    public provedor?:Provedor,
-    public plano?: PlanoServico
-    ){}
+    public pessoa?: Pessoa,
+    public planoServico?: PlanoServico
+    ) {}
 }

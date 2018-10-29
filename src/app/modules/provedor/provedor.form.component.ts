@@ -8,7 +8,7 @@ import { Provedor } from './provedor.model';
 export class ProvedorFormComponent implements OnInit {
 
     private provedor: Provedor;
-    saved: boolean
+    saved: boolean;
     edited: boolean;
 
   constructor(private provedorService: ProvedorService) {}
@@ -18,8 +18,8 @@ export class ProvedorFormComponent implements OnInit {
   }
 
 
-  save(){
-    if(this.provedor.id === undefined){
+  save() {
+    if (this.provedor.id === undefined) {
        this.provedorService.create(this.provedor).subscribe();
        this.saved = true;
        return;

@@ -17,29 +17,29 @@
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
-              <input type="text" size="30" [(ngModel)]="colaboracao.plano.nome" name="nome" pInputText>
+              <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.nome" name="nome" pInputText>
               <label for="float-input">Nome do Plano</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
-              <input type="text" size="30" [(ngModel)]="colaboracao.plano.valor" name="precoPlano" pInputText>
+              <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.valor" name="precoPlano" pInputText>
               <label for="float-input">Preço</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
-              <input type="text" size="30" [(ngModel)]="colaboracao.plano.descricao" name="descricaoPlano" pInputText>
+              <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.descricao" name="descricaoPlano" pInputText>
               <label for="float-input">Descrição</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
-              <p-dropdown [options]="provedores" placeholder="Escolha uma provedora" name="provedor" [(ngModel)]="colaboracao.provedor.nome"
+              <p-dropdown [options]="provedores" placeholder="Escolha uma provedora" name="provedor" [(ngModel)]="colaboracao.planoServico.provedora"
                 [style]="{'size':'500px'}" optionLabel="nome"></p-dropdown>
             </span>
           </div>
-          <!-- <div class="ui-g-12 ui-md-6">
+          <div class="ui-g-12 ui-md-6">
               <p-fileUpload name="demo" url="./upload.php" (onUpload)="onUpload($event)"
                    multiple="multiple" accept="image/*" maxFileSize="1000000">
                 <ng-template pTemplate="content">
@@ -48,7 +48,7 @@
                      </ul>
                  </ng-template>
              </p-fileUpload>
-           </div> -->
+           </div>
         </div>
         <br>
         <div class="ui-g">

@@ -4,7 +4,7 @@ import { NgxMaskModule } from 'ngx-mask';
 import { BlockUIModule } from 'primeng/blockui';
 import { DialogModule } from 'primeng/dialog';
 import { HttpClientModule } from '@angular/common/http';
-import { CalendarModule } from 'primeng/primeng';
+import { CalendarModule, ScrollPanelModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
@@ -43,7 +43,8 @@ import {FileUploadModule} from 'primeng/fileupload';
     BlockUIModule,
     NgxMaskModule,
     DropdownModule,
-    FileUploadModule
+    FileUploadModule,
+    ScrollPanelModule
   ],
   declarations: [
    ColaboracaoComponent,

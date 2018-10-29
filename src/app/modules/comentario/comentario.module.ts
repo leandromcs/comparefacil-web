@@ -9,9 +9,7 @@ import { FormsModule } from '@angular/forms';
  import {TableModule} from 'primeng/table';
  import {CardModule} from 'primeng/card';
  import {DataViewModule} from 'primeng/dataview';
-import { HomeComponent } from './home.component';
-import { HomeService } from './home.service';
-import { ComentarioService } from '../comentario/comentario.service';
+import { ComentarioComponent } from './comentario.component';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -20,17 +18,10 @@ import { ComentarioService } from '../comentario/comentario.service';
 
 @NgModule({
   imports: [
-    CommonModule,
-    HttpModule,
-    FormsModule,
-    TableModule,
-    CardModule,
-    DataViewModule
-
 
   ],
   declarations: [
-    HomeComponent
+    ComentarioComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

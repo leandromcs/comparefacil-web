@@ -13,8 +13,9 @@ import { RouterModule, Routes } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import { PrimeTemplate,
          MenuItemContent, 
-         ConfirmationService
-       }from 'primeng/primeng';
+         ConfirmationService,
+         ScrollPanelModule
+       } from 'primeng/primeng';
 import {SidebarModule} from 'primeng/sidebar';
 import { HttpModule } from '@angular/http';
 import {PRIMENG_IMPORTS} from './primeng-imports';
@@ -34,6 +35,7 @@ import {BlockUIModule} from 'primeng/blockui';
 import {NgxMaskModule} from 'ngx-mask';
 import {DropdownModule} from 'primeng/dropdown';
 import { HomeService } from './modules/home/home.service';
+import { ComentarioService } from './modules/comentario/comentario.service';
 
 
 
@@ -66,10 +68,10 @@ import { HomeService } from './modules/home/home.service';
     BlockUIModule,
     NgxMaskModule.forRoot(),
     PRIMENG_IMPORTS,
-    
-    
+    ScrollPanelModule
+
   ],
-  providers: [ConfirmationService,PessoaService,HomeService],
+  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
