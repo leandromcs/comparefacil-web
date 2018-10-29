@@ -29,7 +29,7 @@
                 </div>
                 <div class="ui-g-12 ui-md-6">
                   <span class="ui-float-label">
-                      <input size="30" [value]="pessoa.dataNascimento" name="dataNascimento" pInputText >
+                      <input size="30" [ngModel]="pessoa.dataNascimento|date:'dd/MM/y'" name="dataNascimento" pInputText >
                     <label for="float-input">Data de Nascimento</label>
                   </span>
                 </div>       
