@@ -1,3 +1,4 @@
+import { ColaboracaoService } from './../colaboracao/colaboracao.service';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
@@ -8,6 +9,8 @@ import { FormsModule } from '@angular/forms';
  import {TableModule} from 'primeng/table';
  import {CardModule} from 'primeng/card';
  import {DataViewModule} from 'primeng/dataview';
+import { HomeComponent } from './home.component';
+import { HomeService } from './home.service';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -24,12 +27,9 @@ import { FormsModule } from '@angular/forms';
     DataViewModule
 
 
-  // RouterModule.forChild(pessoaRoute)
   ],
   declarations: [
-   PessoaComponent,
-    // UsuarioDetailComponent,
-    // UsuarioFormComponent
+    HomeComponent
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

@@ -32,7 +32,8 @@ import {CalendarModule} from 'primeng/calendar';
 import {DialogModule} from 'primeng/dialog';
 import {BlockUIModule} from 'primeng/blockui';
 import {NgxMaskModule} from 'ngx-mask';
-import { ProvedorComponent } from './modules/provedor/provedor.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { HomeService } from './modules/home/home.service';
 
 
 
@@ -44,12 +45,10 @@ import { ProvedorComponent } from './modules/provedor/provedor.component';
     TopbarComponent,
     HomeComponent,
     NavbarComponent,
-    
-
-    
     ],
   imports: [
     ButtonModule,
+    DropdownModule,
     CalendarModule,
     InputTextModule,
     DataViewModule,
@@ -70,7 +69,7 @@ import { ProvedorComponent } from './modules/provedor/provedor.component';
     
     
   ],
-  providers: [ConfirmationService,PessoaService],
+  providers: [ConfirmationService,PessoaService,HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -56,6 +56,7 @@ export class PessoaComponent implements OnInit {
       res.ativo = 'INATIVO';
       this.pessoaService.delete(id,res).subscribe();
     });
+    location.reload();
   }
 
 

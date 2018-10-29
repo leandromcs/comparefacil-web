@@ -27,19 +27,12 @@
               <label for="float-input">Password</label>
             </span>
           </div>
-          <div class="ui-g-12 ui-md-6">
+          <div class="ui-g-12 ui-md-6" *ngIf="isEdit">
             <span class="ui-float-label">
               <p-calendar showButtonBar="true" size="30" [(ngModel)]="pessoa.dataNascimento" name="dataNascimento" dateFormat="dd/mm/yy"></p-calendar>
               <label for="float-input">Data de Nascimento</label>
             </span>
           </div>       
-          <div class="ui-g-12 ui-md-6">
-            <span class="ui-float-label">
-              <!-- <p-calendar showButtonBar="true" size="30" [(ngModel)]="pessoa.dataUltimo" name="dataUltimo" dateFormat="dd.mm.yy"></p-calendar> -->
-              <input  type="text" size="30" [(ngModel)]="pessoa.dataUltimo" name="email" mask="00/00/000" pInputText>
-              <label for="float-input">Data de Último</label>
-            </span>
-          </div>
         </div>
         <br>
         <div class="ui-g">

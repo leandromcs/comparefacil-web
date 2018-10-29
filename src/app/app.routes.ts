@@ -15,7 +15,9 @@ import { HomeComponent } from './modules/home/home.component';
 
   { path: '', component: HomeComponent },
   { path: 'pessoa', loadChildren: './modules/pessoa/pessoa.module#PessoaModule'},
-  { path: 'provedor', loadChildren: './modules/provedor/provedor.module#ProvedorModule'}
+  { path: 'provedor', loadChildren: './modules/provedor/provedor.module#ProvedorModule'},
+  { path: 'colaboracao', loadChildren: './modules/colaboracao/colaboracao.module#ColaboracaoModule'}
+
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

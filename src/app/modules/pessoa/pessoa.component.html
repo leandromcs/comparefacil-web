@@ -6,7 +6,7 @@
                         <tr>
                             <th>Nome</th>
                             <th>Email</th>
-                            <th>?</th>
+                            <th>Ativo</th>
                             <th></th>
                         </tr>
                     </ng-template>
@@ -14,7 +14,7 @@
                         <tr>
                             <td>{{item.nome}}</td>
                             <td>{{item.email}}</td>
-                            <td><td>
+                            <td>{{item.ativo}}<td>
                             <div style="text-align: center">
                                     <i class="pi pi-trash" style="font-size: 2em" (click)="procedimento('delete',item.id)"></i>
                                     <i class="pi pi-pencil" style="font-size: 2em" (click)="procedimento('edit',item.id)"></i>

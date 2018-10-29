@@ -14,6 +14,7 @@ export class PessoaFormComponent implements OnInit {
   private pessoa: Pessoa;
   saved: boolean
   edited: boolean;
+  isEdit:boolean;
 
   constructor(private pessoaService: PessoaService,private route: ActivatedRoute) { }
 
@@ -21,9 +22,9 @@ export class PessoaFormComponent implements OnInit {
     this.pessoa = new Pessoa();
     this.route.params.subscribe(params =>{
       if(params['id']){
-        console.log('ue')
-        this.pessoaService.findId(params['id']).subscribe(res => {
+         this.pessoaService.findId(params['id']).subscribe(res => {
          this.pessoa = res;
+         this.isEdit = false;
         })
       }
    })
