@@ -13,7 +13,6 @@ export class Colaboracao{
     public versao?: string,
     public dataAtualizacao?: Data,
     public pessoa?:Pessoa,
-    public provedor?:Provedor,
-    public plano?: PlanoServico
+    public planoServico?: PlanoServico
     ){}
 }

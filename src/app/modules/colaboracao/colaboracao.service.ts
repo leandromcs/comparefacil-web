@@ -1,3 +1,4 @@
+import { PlanoServico } from './../plano/plano.model';
 import { Colaboracao } from './colaboracao.model';
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
@@ -21,6 +22,10 @@ export class ColaboracaoService {
 
   create(colabotacao: Colaboracao): Observable<Colaboracao>{
     return this.httpClient.post<Colaboracao>(this.localhost+this.apiUrl+this.colabotacaoUrl,colabotacao);
+  }
+
+  createPlano(planoServico: PlanoServico): Observable<PlanoServico>{
+    return this.httpClient.post<PlanoServico>(this.localhost+this.apiUrl+'/plano-servico',planoServico);
   }
 
   findId(id: number): Observable<Colaboracao> {

@@ -23,8 +23,8 @@ export class ColaboracaoFormComponent implements OnInit{
     
     ngOnInit(){
         this.colaboracao = new Colaboracao;
-        this.colaboracao.plano = new PlanoServico;
-        this.colaboracao.provedor = new Provedor;
+        this.colaboracao.planoServico = new PlanoServico;
+        this.colaboracao.planoServico.provedora = new Provedor;
         this.provedores = [];
         this.colaboracaoService.findAllProvedores().subscribe(res => {
             this.provedores = res;
@@ -35,7 +35,10 @@ export class ColaboracaoFormComponent implements OnInit{
 
     save(){
         console.log(this.colaboracao)
-        this.colaboracaoService.create(this.colaboracao).subscribe()
+        this.colaboracaoService.createPlano(this.colaboracao.planoServico).subscribe(res => {
+            this.colaboracaoService.create(this.colaboracao).subscribe();
+        });
+        
     }
 
 
