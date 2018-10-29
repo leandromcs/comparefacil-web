@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { ColaboracaoFormComponent } from './colaboracao.form.component';
 import { ColaboracaoService } from './colaboracao.service';
 import {DropdownModule} from 'primeng/dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -41,7 +42,8 @@ import {DropdownModule} from 'primeng/dropdown';
     DialogModule,
     BlockUIModule,
     NgxMaskModule,
-    DropdownModule
+    DropdownModule,
+    FileUploadModule
   ],
   declarations: [
    ColaboracaoComponent,

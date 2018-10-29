@@ -6,6 +6,7 @@ import { OnInit, Component } from "@angular/core";
 import { Pessoa } from "../pessoa/pessoa.model";
 import { Provedor } from '../provedor/provedor.model';
 import { SelectItem } from 'primeng/api';
+import {FileUploadModule} from 'primeng/fileupload';
 
 @Component({
     templateUrl: './colaboracao.form.component.html',

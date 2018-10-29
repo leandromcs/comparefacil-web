@@ -23,16 +23,23 @@ export class MenuComponent implements OnInit {
                                label: 'Provedor',
                                icon: 'pi pi-fw pi-external-link',
                                items:[
-                                      {label: 'Cadastrar uma Provedora', icon: 'pi pi-fw pi-external-link', routerLink:'/provedor/new'}
+                                      {label: 'Cadastrar uma Provedora', icon: 'pi pi-fw pi-plus', routerLink:'/provedor/new'}
                                     ]
+                            },
+                            {
+                              label: 'Colaborações', 
+                              icon: 'pi pi-fw pi-external-link', 
+                              items:[
+                                {label: 'Cadastrar Colaboração', icon: 'pi pi-fw pi-plus', routerLink:'/colaboracao/new'}
+                              ]
                             }
                             
                         ]
                     },
-                    {label: 'Login', icon: 'pi pi-fw pi-external-link'},
+                    {label: 'Login', icon: 'pi pi-user'},
                     {separator: true},
                     {label: 'Logout', icon: 'pi pi-fw pi-times'},
-                    {label: 'Inicio',icon: '', routerLink:'/'}
+                    {label: 'Inicio',icon: 'pi pi-home', routerLink:'/'}
                 ]
             }
          

@@ -39,6 +39,16 @@
                 [style]="{'size':'500px'}" optionLabel="nome"></p-dropdown>
             </span>
           </div>
+          <!-- <div class="ui-g-12 ui-md-6">
+              <p-fileUpload name="demo" url="./upload.php" (onUpload)="onUpload($event)"
+                   multiple="multiple" accept="image/*" maxFileSize="1000000">
+                <ng-template pTemplate="content">
+                      <ul >
+                         <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                     </ul>
+                 </ng-template>
+             </p-fileUpload>
+           </div> -->
         </div>
         <br>
         <div class="ui-g">

@@ -28,7 +28,7 @@
                     <div class="ui-g-2 ui-sm-6">Plano: </div>
                     <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico}}</b></div>
 
-                    <div class="ui-g-2 ui-sm-6">Descricao: </div>
+                    <div class="ui-g-2 ui-sm-6">Descricao:</div>
                     <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico}}</b></div>
 
                     <div class="ui-g-2 ui-sm-6">Data: </div>
@@ -51,7 +51,7 @@
         </div>
     </ng-template> -->
 </p-dataView>
-<p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()">
+<p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()" width="500" height="100">
         <div class="ui-g" *ngIf="colaboracaoSelecionada">
             <!-- <div class="ui-g-12" style="text-align:center">
                 <img src="assets/showcase/images/demo/car/{{selectedCar.brand}}.png">

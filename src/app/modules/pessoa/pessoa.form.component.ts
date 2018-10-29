@@ -14,7 +14,7 @@ export class PessoaFormComponent implements OnInit {
   private pessoa: Pessoa;
   saved: boolean
   edited: boolean;
-  isEdit:boolean;
+  isEdit:boolean = true;
 
   constructor(private pessoaService: PessoaService,private route: ActivatedRoute) { }
 
