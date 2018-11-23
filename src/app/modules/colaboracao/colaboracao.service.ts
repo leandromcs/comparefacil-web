@@ -27,6 +27,10 @@ export class ColaboracaoService {
     return this.httpClient.post<PlanoServico>(this.localhost + this.apiUrl + '/plano-servico', planoServico);
   }
 
+  createPlano(planoServico: PlanoServico): Observable<PlanoServico>{
+    return this.httpClient.post<PlanoServico>(this.localhost+this.apiUrl+'/plano-servico',planoServico);
+  }
+
   findId(id: number): Observable<Colaboracao> {
     return this.httpClient.get(this.localhost + this.apiUrl + this.colabotacaoUrl + '/' + id);
   }
