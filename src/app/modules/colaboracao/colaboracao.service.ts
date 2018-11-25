@@ -32,8 +32,8 @@ export class ColaboracaoService {
     return this.httpClient.get(this.localhost + this.apiUrl + this.colabotacaoUrl + '/' + id);
   }
 
-  delete(id: number, colabotacao: Colaboracao) {
-    return this.httpClient.delete(this.localhost + this.apiUrl + this.colabotacaoUrl + '/delete/' + id, colabotacao);
+  delete(id: number) {
+    return this.httpClient.delete(this.localhost + this.apiUrl + this.colabotacaoUrl + '/delete/' + id);
   }
 
   update(colabotacao: Colaboracao) {

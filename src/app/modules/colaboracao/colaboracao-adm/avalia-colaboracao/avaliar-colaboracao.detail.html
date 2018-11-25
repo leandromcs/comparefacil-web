@@ -22,11 +22,6 @@
                 </span>
               </div>
             <div class="ui-g-12 ui-md-6">
-                <div class="ui-g-12 ui-md-2">
-                    <button pButton type="button"  label="Editar" (click)="editDescricao()"></button>
-                </div>
-            </div>
-            <div class="ui-g-12 ui-md-6">
               <span class="ui-float-label">
                 <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.valor" name="precoPlano" pInputText [disabled]="true">
                 <label for="float-input">Preço</label>
@@ -41,6 +36,7 @@
             <div class="ui-g-12 ui-md-6">
               <span class="ui-float-label">
                 <input name="provedor" [(ngModel)]="colaboracao.planoServico.provedora.nome" pInputText [disabled]="true">
+                <label for="float-input">Provedor</label>
               </span>
             </div>
             <!-- <div class="ui-g-12 ui-md-6">
@@ -53,6 +49,17 @@
                    </ng-template>
                </p-fileUpload>
              </div> -->
+          </div>
+          <hr>
+          <div class="ui-g ui-fluid">
+               <div class="ui-g-12">
+                 <div class="ui-g-12 ui-md-12">
+                    <span class="ui-float-label">
+                      <textarea [rows]="5" [cols]="165" class="ui-inputtext ui-corner-all ui-state-default ui-widget" pInputTextarea autoResize="autoResize"></textarea>
+                       <label for="float-input">Discreva sobre essa colaboração</label>
+                    </span>
+                  </div>
+                </div>
           </div>
           <br>
           <div class="ui-g">

@@ -35,6 +35,10 @@
 
                     <div class="ui-g-2 ui-sm-6">Data: </div>
                     <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.dataCriacao | date:'dd/MM/yyyy'}}</b></div>
+                    <div class="ui-g-2 ui-sm-6">Avaliação:  </div>
+                    <div class="ui-g-10 ui-sm-6">
+                        <p-rating [ngModel]="5" readonly="true" stars="5" [cancel]="false"></p-rating>
+                    </div>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-1 search-icon">
@@ -83,6 +87,9 @@
          <div class="ui-g-12"></div>
          <div class="ui-g-4">Fazer um comentário:  </div>
          <div class="ui-g-12"><textarea [rows]="5" [cols]="120"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao"></textarea></div>
+        </div>
+        <div>
+             <p-rating  [cancel]="false"></p-rating>
         </div>
         <p-footer>
                 <button pButton type="button" label="Confirmar" (click)="concluir()"></button>

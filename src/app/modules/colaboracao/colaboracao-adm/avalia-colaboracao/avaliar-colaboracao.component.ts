@@ -33,8 +33,7 @@ export class AvaliarColaboracaoComponent implements OnInit {
 
     delete(id: number) {
         this.colaboracaoService.findId(id).subscribe( res => {
-            this.colaboracao = res;
-            this.colaboracaoService.delete(id, this.colaboracao).subscribe();
+            this.colaboracaoService.delete(id).subscribe();
             location.reload();
         });
     }

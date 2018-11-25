@@ -48,9 +48,4 @@ export class AvaliarColaboracaoDetail implements OnInit {
         return this.colaboracaoService.update(this.colaboracao).subscribe();
     }
 
-    editDescricao() {
-        this.showDisable = false;
-    }
-
-
 }

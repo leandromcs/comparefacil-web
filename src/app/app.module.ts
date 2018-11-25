@@ -36,6 +36,7 @@ import {NgxMaskModule} from 'ngx-mask';
 import {DropdownModule} from 'primeng/dropdown';
 import { HomeService } from './modules/home/home.service';
 import { ComentarioService } from './modules/comentario/comentario.service';
+import {RatingModule} from 'primeng/rating';
 
 
 
@@ -66,6 +67,7 @@ import { ComentarioService } from './modules/comentario/comentario.service';
     AccordionModule,
     DialogModule,
     BlockUIModule,
+    RatingModule,
     NgxMaskModule.forRoot(),
     PRIMENG_IMPORTS,
     ScrollPanelModule
