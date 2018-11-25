@@ -36,8 +36,7 @@ export class ColaboracaoFormComponent implements OnInit {
 
 
     save() {
-        console.log('Colaboradores: ', this.colaboracao);
-        this.colaboracaoService.createPlano(this.colaboracao.planoServico).subscribe(res => {
+           this.colaboracaoService.createPlano(this.colaboracao.planoServico).subscribe(res => {
             this.colaboracao.planoServico = res;
             this.colaboracaoService.create(this.colaboracao).subscribe( res => {
                 this.saved = true;

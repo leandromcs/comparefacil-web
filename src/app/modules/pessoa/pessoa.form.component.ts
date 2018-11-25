@@ -16,7 +16,7 @@ export class PessoaFormComponent implements OnInit {
   edited: boolean;
   isEdit:boolean = true;
 
-  constructor(private pessoaService: PessoaService,private route: ActivatedRoute) { }
+  constructor(private pessoaService: PessoaService, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.pessoa = new Pessoa();

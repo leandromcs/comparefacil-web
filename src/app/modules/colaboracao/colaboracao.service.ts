@@ -27,16 +27,13 @@ export class ColaboracaoService {
     return this.httpClient.post<PlanoServico>(this.localhost + this.apiUrl + '/plano-servico', planoServico);
   }
 
-  createPlano(planoServico: PlanoServico): Observable<PlanoServico>{
-    return this.httpClient.post<PlanoServico>(this.localhost+this.apiUrl+'/plano-servico',planoServico);
-  }
 
   findId(id: number): Observable<Colaboracao> {
     return this.httpClient.get(this.localhost + this.apiUrl + this.colabotacaoUrl + '/' + id);
   }
 
   delete(id: number, colabotacao: Colaboracao) {
-    return this.httpClient.put<Colaboracao>(this.localhost + this.apiUrl + this.colabotacaoUrl + '/delete/' + id, colabotacao);
+    return this.httpClient.delete(this.localhost + this.apiUrl + this.colabotacaoUrl + '/delete/' + id, colabotacao);
   }
 
   update(colabotacao: Colaboracao) {

@@ -8,11 +8,13 @@
                 </div>
                 <div class="ui-g-6 ui-md-4 filter-container">
                     <div style="position:relative">
-                        <input type="search" pInputText placeholder="Pesquise aqui" (keyup)="dv.filter($event.target.value)">
+                        <input type="search" pInputText placeholder="Pesquise aqui" (ngModelChange)="dynamicSearch($event)" [(ngModel)]="pesquisa">
                     </div>
                 </div>
                 <div class="ui-g-6 ui-md-4" style="text-align:right">
-                    <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+                    <p-dataViewLayoutOptions>
+                        
+                    </p-dataViewLayoutOptions>
                 </div>
             </div>
         </div>
@@ -23,7 +25,7 @@
             <!-- <div class="ui-g-12 ui-md-3" style="text-align:center">
                 <img src="assets/showcase/images/demo/car/{{car.brand}}.png">
             </div> -->
-            <div class="ui-g-12 ui-md-8 car-details">
+            <div class="ui-g-12 ui-md-8">
                 <div class="ui-g">
                     <div class="ui-g-2 ui-sm-6">Plano: </div>
                     <div class="ui-g-10 ui-sm-6"><b>{{colaboracao.planoServico.nome}}</b></div>
@@ -40,16 +42,16 @@
             </div>
         </div>
     </ng-template>
-    <!-- <ng-template let-car pTemplate="gridItem">
+    <ng-template let-colaboracao pTemplate="gridItem">
         <div style="padding:.5em" class="ui-g-12 ui-md-3">
-            <p-panel [header]="car.vin" [style]="{'text-align':'center'}">
-                <img src="assets/showcase/images/demo/car/{{car.brand}}.png" width="60">
-                <div class="car-detail">{{car.year}} - {{car.color}}</div>
+            <p-panel [style]="{'text-align':'center'}">
+                <!-- <img src="assets/showcase/images/demo/car/{{car.brand}}.png" width="60"> -->
+                <div class="car-detail">{{colaboracao.planoServico.nome}}</div>
                 <hr class="ui-widget-content" style="border-top:0">
-                <button pButton type="button" icon="pi pi-search" (click)="selectCar($event, car)" style="margin-top:0"></button>
+                <button pButton type="button" icon="pi pi-search" (click)="selecionado($event, colaboracao)" style="margin-top:0"></button>
             </p-panel>
         </div>
-    </ng-template> -->
+    </ng-template>
 </p-dataView>
 <p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()" [width]="1100" [height]="100">
         <div class="ui-g" *ngIf="colaboracaoSelecionada">
@@ -64,20 +66,23 @@
     
             <div class="ui-g-4">Data:  </div>
             <div class="ui-g-8">{{colaboracaoSelecionada.dataCriacao | date:'dd/MM/yyyy'}}</div>
-            <div class="ui-g">
+            <div class="ui-g-12"></div>
             <div clas ="ui-g-4">Comentários: </div>
+            <div class="ui-g-12"></div>
+            <div class="ui-g" *ngIf="showDiv">
             <div class="ui-g-12 ui-md-4">
                 <p-scrollPanel [style]="{width: '800px', height: '200px'}">
-                    <div>
-                            <p-fieldset *ngFor="let comentario of comentarios">
+                    <div >
+                            <p-fieldset *ngFor="let comentario of comentarios" >
                                 {{comentario.descricao}}
                             </p-fieldset>
                     </div>          
                 </p-scrollPanel>
             </div>
          </div>
+         <div class="ui-g-12"></div>
          <div class="ui-g-4">Fazer um comentário:  </div>
-         <div class="ui-g-12"><textarea [rows]="5" [cols]="130"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao"></textarea></div>
+         <div class="ui-g-12"><textarea [rows]="5" [cols]="120"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao"></textarea></div>
         </div>
         <p-footer>
                 <button pButton type="button" label="Confirmar" (click)="concluir()"></button>

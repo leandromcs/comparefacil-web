@@ -21,6 +21,9 @@ import { ColaboracaoFormComponent } from './colaboracao.form.component';
 import { ColaboracaoService } from './colaboracao.service';
 import {DropdownModule} from 'primeng/dropdown';
 import {FileUploadModule} from 'primeng/fileupload';
+import { AvaliarColaboracaoDetail } from './colaboracao-adm/avalia-colaboracao/avaliar-colaboracao.detail';
+import { AvaliarColaboracaoComponent } from './colaboracao-adm/avalia-colaboracao/avaliar-colaboracao.component';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -44,11 +47,14 @@ import {FileUploadModule} from 'primeng/fileupload';
     NgxMaskModule,
     DropdownModule,
     FileUploadModule,
-    ScrollPanelModule
+    ScrollPanelModule,
+    TooltipModule
   ],
   declarations: [
    ColaboracaoComponent,
-   ColaboracaoFormComponent
+   ColaboracaoFormComponent,
+   AvaliarColaboracaoDetail,
+   AvaliarColaboracaoComponent
   ],
   providers: [ColaboracaoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

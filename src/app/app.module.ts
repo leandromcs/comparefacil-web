@@ -5,14 +5,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import {AccordionModule} from 'primeng/accordion';  
+import {AccordionModule} from 'primeng/accordion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PanelMenuModule} from 'primeng/panelmenu';
 import {MenuItem} from 'primeng/api';
-import { RouterModule, Routes } from '@angular/router';     
+import { RouterModule, Routes } from '@angular/router';
 import {TableModule} from 'primeng/table';
 import { PrimeTemplate,
-         MenuItemContent, 
+         MenuItemContent,
          ConfirmationService,
          ScrollPanelModule
        } from 'primeng/primeng';

@@ -1,0 +1,93 @@
+<div class="ui-g ui-fluid">
+    <div class="ui-g-12">
+      <p-card>
+        <form role="form">
+          <div class="ui-g form-group">
+            <div class="ui-g-12 ui-md-6">
+              <span class="ui-float-label">
+                <input type="text" size="30" [(ngModel)]="colaboracao.nome" name="nome" pInputText [disabled]="true" >
+                <label for="float-input">Título</label>
+              </span>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <span class="ui-float-label">
+                <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.nome" name="nomePlano" pInputText [disabled]="true">
+                <label for="float-input">Nome do Plano</label>
+              </span>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+                <span class="ui-float-label">
+                  <input type="text" size="30" [(ngModel)]="colaboracao.descricao" name="descricao" pInputText [disabled]="showDisable">
+                  <label for="float-input">Descrição da Colaboração</label>
+                </span>
+              </div>
+            <div class="ui-g-12 ui-md-6">
+                <div class="ui-g-12 ui-md-2">
+                    <button pButton type="button"  label="Editar" (click)="editDescricao()"></button>
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <span class="ui-float-label">
+                <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.valor" name="precoPlano" pInputText [disabled]="true">
+                <label for="float-input">Preço</label>
+              </span>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <span class="ui-float-label">
+                <input type="text" size="30" [(ngModel)]="colaboracao.planoServico.descricao" name="descricaoPlano" pInputText [disabled]="true">
+                <label for="float-input">Descrição</label>
+              </span>
+            </div>
+            <div class="ui-g-12 ui-md-6">
+              <span class="ui-float-label">
+                <input name="provedor" [(ngModel)]="colaboracao.planoServico.provedora.nome" pInputText [disabled]="true">
+              </span>
+            </div>
+            <!-- <div class="ui-g-12 ui-md-6">
+                <p-fileUpload name="demo" url="./upload.php" (onUpload)="onUpload($event)"
+                     multiple="multiple" accept="image/*" maxFileSize="1000000">
+                  <ng-template pTemplate="content">
+                        <ul >
+                           <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+                       </ul>
+                   </ng-template>
+               </p-fileUpload>
+             </div> -->
+          </div>
+          <br>
+          <div class="ui-g">
+            <div class="ui-g-12 ui-md-2">
+              <button pButton type="submit" class="ui-button-success" label="Aprovar" (click)="avaliacao('APROVADO')" routerLink="/colaboracao/avaliar"></button>
+            </div>
+            <div class="ui-g-12 ui-md-2">
+              <button pButton type="button" label="Reprovar" class="ui-button-danger"  (click)="avaliacao('REPROVADO')" routerLink="/colaboracao/avaliar"></button>
+            </div>
+            <div class="ui-g-2 ui-md-6"></div>
+            <div class="ui-g-12 ui-md-2">
+                <button pButton type="button" label="Cancelar"   routerLink="/colaboracao/avaliar"></button>
+              </div>
+          </div>
+        </form>
+      </p-card>
+    </div>
+  </div>
+  <div class="ui-rtl" dir="rtl">
+    <p-blockUI [blocked]="saved">
+      <p-dialog header="Feito !" [(visible)]="saved">
+        Cadastro realizado com sucesso.
+        <br><br>
+        <p-footer>
+          <button pButton type="button" label="Aprovar" routerLink="/avaliar"></button>
+        </p-footer>
+      </p-dialog>
+    </p-blockUI>
+    <p-blockUI [blocked]="edited">
+      <p-dialog header="Feito !" [(visible)]="edited">
+        Editado com sucesso.
+        <br><br>
+        <p-footer>
+          <button pButton type="button" label="Recusar" routerLink="/avaliar"></button>
+        </p-footer>
+      </p-dialog>
+    </p-blockUI>
+  </div>

@@ -1,0 +1,44 @@
+<div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <p-card class="card card-w-title">
+                <p-table [value]="colaboracoes" >
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>Plano</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-colaboracao>
+                            <tr>
+                                <td>{{colaboracao.planoServico.nome}}</td>
+                                <td>{{colaboracao.dataCriacao | date:'dd/MM/yyyy'}}</td>
+                                <td>{{colaboracao.aprovado}}<td>
+                                <div style="text-align: center">
+                                        <i class="pi pi-check" style="font-size: 2em" pTooltip="Avaliar" tooltipPosition="top" (click)="routeAvaliar(colaboracao.id)" ></i>
+                                        <i class="pi pi-trash" style="font-size: 2em" pTooltip="Deletar" tooltipPosition="top" (click)="delete(colaboracao.id)"></i>
+                                </div>
+                            </tr>
+                        </ng-template>
+                    </p-table>
+                   <br/>
+                   <br/>
+                  <div class="ui-g">
+                   <br/>
+                      <div class="ui-g-12 ui-md-2">
+                            <button pButton type="button" label="Voltar" routerLink="/"></button>
+                      </div>
+                  </div>
+                </p-card>
+        </div>
+    </div>
+        
+    
+      
+    
+     
+      
+    
+    
+    
