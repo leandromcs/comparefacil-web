@@ -82,7 +82,8 @@ export class HomeComponent implements OnInit {
         this.comentario.colaboracao = this.colaboracaoSelecionada;
         this.comentarioService.create(this.comentario).subscribe();
         this.comentario.descricao = null;
-        return this.displayDialog = false;
+        return this.findAllComentario(this.colaboracaoSelecionada.id);
+
     }
     return this.displayDialog = false;
   }

@@ -24,6 +24,7 @@ import {FileUploadModule} from 'primeng/fileupload';
 import { AvaliarColaboracaoDetail } from './colaboracao-adm/avalia-colaboracao/avaliar-colaboracao.detail';
 import { AvaliarColaboracaoComponent } from './colaboracao-adm/avalia-colaboracao/avaliar-colaboracao.component';
 import {TooltipModule} from 'primeng/tooltip';
+import { AvaliacaoColaboracaoService } from './colaboracao-adm/avalia-colaboracao/avalicao-colaboracao.service';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -56,7 +57,8 @@ import {TooltipModule} from 'primeng/tooltip';
    AvaliarColaboracaoDetail,
    AvaliarColaboracaoComponent
   ],
-  providers: [ColaboracaoService],
+  providers: [ColaboracaoService,
+              AvaliacaoColaboracaoService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class ColaboracaoModule {}

@@ -1,3 +1,6 @@
+import { AvaliacaoColaboracaoService } from './avalicao-colaboracao.service';
+import { Pessoa } from './../../../pessoa/pessoa.model';
+import { AvaliarColaboracao } from './avaliar-colaboracao.model';
 import { ColaboracaoService } from './../../colaboracao.service';
 import { Component, OnInit } from '@angular/core';
 import { Colaboracao } from '../../colaboracao.model';
@@ -14,16 +17,20 @@ import { Subscription, Observable } from 'rxjs';
 // tslint:disable-next-line:component-class-suffix
 export class AvaliarColaboracaoDetail implements OnInit {
 
+    avaliacaoColaboracao: AvaliarColaboracao;
     colaboracao: Colaboracao;
     private subscription: Subscription;
     showDisable: boolean;
 
     constructor (
         private route: ActivatedRoute,
-        private colaboracaoService: ColaboracaoService
+        private colaboracaoService: ColaboracaoService,
+        private avaliarColaboracaoService: AvaliacaoColaboracaoService
     ) {}
 
     ngOnInit() {
+        this.avaliacaoColaboracao =  new AvaliarColaboracao;
+        this.avaliacaoColaboracao.pessoa = new Pessoa;
         this.colaboracao = new Colaboracao;
         this.colaboracao.planoServico = new PlanoServico;
         this.colaboracao.planoServico.provedora = new Provedor;
@@ -40,6 +47,11 @@ export class AvaliarColaboracaoDetail implements OnInit {
     }
 
     avaliacao(res: string) {
+        if (this.avaliacaoColaboracao.comentario.length !== 0 || this.avaliacaoColaboracao.comentario !== null) {
+            this.avaliacaoColaboracao.colaboracaoId = this.colaboracao.id;
+            console.log(this.avaliacaoColaboracao)
+            this.avaliarColaboracaoService.create(this.avaliacaoColaboracao).subscribe();
+        }
         if (res === 'APROVADO') {
             this.colaboracao.aprovado = res;
             return this.colaboracaoService.update(this.colaboracao).subscribe();
