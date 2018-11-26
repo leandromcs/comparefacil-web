@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class HomeService {
 
-  localhost = 'http://localhost:4200'
+  localhost = 'http://localhost:4200';
   apiUrl = '/api';
   colabotacaoUrl = '/colaboracao';
   colabotacao: Colaboracao;
@@ -14,12 +14,14 @@ export class HomeService {
 
 
   findAll(): Observable<any[]> {
-    return this.httpClient.get<Colaboracao[]>(this.localhost + this.apiUrl + this.colabotacaoUrl);
+    return this.httpClient.get<Colaboracao[]>(this.localhost + this.apiUrl + this.colabotacaoUrl + '/aprovados');
   }
 
   dynamicSearch(pesquisa?: string ): Observable<any[]> {
     return this.httpClient.get<Colaboracao[]>(this.localhost + this.apiUrl + this.colabotacaoUrl + '/dynamicSearch/' + pesquisa);
   }
+
+
 
 
 

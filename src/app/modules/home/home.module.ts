@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home.component';
 import { HomeService } from './home.service';
 import { ComentarioService } from '../comentario/comentario.service';
+import { LikeService } from '../like/like.service';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';

@@ -5,7 +5,7 @@ export class AvaliarColaboracao {
     constructor (
        public dataAvaliacao?: Data,
        public comentario?: string,
-       public pessoa?: Pessoa,
-       public colaboracaoId?: number
+       public idPessoa?: number,
+       public idColaboracao?: number
     ) {}
 }

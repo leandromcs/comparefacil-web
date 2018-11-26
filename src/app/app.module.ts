@@ -37,6 +37,8 @@ import {DropdownModule} from 'primeng/dropdown';
 import { HomeService } from './modules/home/home.service';
 import { ComentarioService } from './modules/comentario/comentario.service';
 import {RatingModule} from 'primeng/rating';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import { LikeService } from './modules/like/like.service';
 
 
 
@@ -55,15 +57,16 @@ import {RatingModule} from 'primeng/rating';
     CalendarModule,
     InputTextModule,
     DataViewModule,
-    BrowserAnimationsModule,
     TableModule,
     CardModule,
     SidebarModule,
     PanelMenuModule,
+    MatButtonModule,
     BrowserModule,
     routes,
     HttpClientModule,
     HttpModule,
+    BrowserAnimationsModule,
     AccordionModule,
     DialogModule,
     BlockUIModule,
@@ -73,7 +76,7 @@ import {RatingModule} from 'primeng/rating';
     ScrollPanelModule
 
   ],
-  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService],
+  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService, LikeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

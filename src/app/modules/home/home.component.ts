@@ -1,3 +1,5 @@
+import { Like } from './../like/like.model';
+import { LikeService } from './../like/like.service';
 import { Observable } from 'rxjs';
 import { ComentarioService } from './../comentario/comentario.service';
 import { HomeService } from './home.service';
@@ -6,6 +8,8 @@ import { ColaboracaoService } from './../colaboracao/colaboracao.service';
 import { Component, OnInit } from '@angular/core';
 import { Comentario } from '../comentario/comentario.model';
 import { Router } from '@angular/router';
+import {MatIconRegistry} from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -21,10 +25,15 @@ export class HomeComponent implements OnInit {
   pesquisa: string;
   ativaBusca: boolean;
   showDiv: boolean;
+  like: Like;
+  stars: number;
+  numberLikes: number;
+  numberDeslike: number;
 
   constructor(private homeService: HomeService,
               private comentarioService: ComentarioService,
-              private router: Router) {}
+              private router: Router,
+              private likeService: LikeService) {}
 
 
   ngOnInit() {
@@ -32,8 +41,8 @@ export class HomeComponent implements OnInit {
     this.showDiv = false;
     this.findAll();
     this.comentario = new Comentario;
+    this.like = new Like;
   }
-
 
   dynamicSearch(pesquisa) {
     if (this.ativaBusca) {
@@ -54,10 +63,21 @@ export class HomeComponent implements OnInit {
 
   findAll() {
     this.homeService.findAll().subscribe(res => {
-      console.log(res);
        this.colaboracoes = res;
        this.ativaBusca = true;
     });
+  }
+
+  quantidadeCurtidas (id: number) {
+    this.likeService.getLike(id).subscribe(res => {
+      this.numberLikes = res;
+    });
+
+    this.likeService.getDeslike(id).subscribe(res => {
+      this.numberDeslike = res;
+    });
+
+     // this.stars = (this.numberLikes - this.numberDeslike);
   }
 
   findAllComentario(id: number) {
@@ -72,6 +92,7 @@ export class HomeComponent implements OnInit {
 
   selecionado(event: Event, colaboracao: Colaboracao) {
     this.colaboracaoSelecionada = colaboracao;
+    this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
     this.findAllComentario(this.colaboracaoSelecionada.id);
     this.displayDialog = true;
     event.preventDefault();
@@ -87,5 +108,15 @@ export class HomeComponent implements OnInit {
     }
     return this.displayDialog = false;
   }
+
+  avaliar(res: string) {
+    this.like.idPessoa = null;
+    this.like.idColaboracao = this.colaboracaoSelecionada.id;
+    this.like.flagLike = res;
+    this.likeService.like(this.like).subscribe( res => {
+      this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
+    });
+
+   }
 
 }
