@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,15 +8,22 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   items: any[];
-  constructor() { }
+  cargo: string;
+
+  constructor(private route: ActivatedRoute) { }
   ngOnInit() {
 
+    this.route.queryParams.subscribe(params => {
+      this.cargo = params['cargo'];
+      console.log(this.cargo);
+
+  if (this.cargo === 'COLABORADOR') {
     this.items = [
        {
                 label: 'Menu',
                 icon: 'pi pi-th-large',
                 items: [{
-                        label: 'Acessar', 
+                        label: 'Acessar',
                         icon: 'pi pi-fw pi-plus',
                         items: [
                             {label: 'Pessoa', icon: 'pi pi-fw pi-external-link', routerLink: '/pessoa', items: [
@@ -35,17 +43,40 @@ export class MenuComponent implements OnInit {
                                 {label: 'Cadastrar Colaboração', icon: 'pi pi-fw pi-plus', routerLink: '/colaboracao/new'}
                               ]
                             }
-
                         ]
                     },
-                    {label: 'Login', icon: 'pi pi-user'},
                     {separator: true},
                     {label: 'Logout', icon: 'pi pi-fw pi-times'},
-                    {label: 'Inicio',icon: 'pi pi-home', routerLink:'/'}
+                    {label: 'Inicio', icon: 'pi pi-home', routerLink: '/home'}
                 ]
             }
 
     ];
+  } else if(this.cargo === 'ADMINISTRADOR'){
+    this.items = [{
+      label: 'Menu',
+      icon: 'pi pi-th-large',
+      items: [{
+              label: 'Acessar',
+              icon: 'pi pi-fw pi-plus',
+              items: [
+                  {
+                    label: 'Administrador',
+                    icon: 'pi pi-fw pi-plus',
+                    items: [{
+                      label: 'Avaliar', icon: 'pi pi-fw pi-external-link', routerLink: '/colaboracao/avaliar'
+                     }]
+                  }
+              ]
+          },
+          {separator: true},
+          {label: 'Logout', icon: 'pi pi-fw pi-times'},
+          {label: 'Inicio', icon: 'pi pi-home', routerLink: '/home'}
+      ]
+  }];
+  }
+
+});
   }
 
 }

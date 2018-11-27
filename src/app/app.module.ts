@@ -1,3 +1,4 @@
+import { LoginComponent } from './modules/login/login.component';
 import { PessoaService } from './modules/pessoa/pessoa.service';
 import { HomeComponent } from './modules/home/home.component';
 
@@ -39,6 +40,7 @@ import { ComentarioService } from './modules/comentario/comentario.service';
 import {RatingModule} from 'primeng/rating';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { LikeService } from './modules/like/like.service';
+import { LoginService } from './modules/login/login.service';
 
 
 
@@ -50,6 +52,7 @@ import { LikeService } from './modules/like/like.service';
     TopbarComponent,
     HomeComponent,
     NavbarComponent,
+    LoginComponent
     ],
   imports: [
     ButtonModule,
@@ -76,7 +79,7 @@ import { LikeService } from './modules/like/like.service';
     ScrollPanelModule
 
   ],
-  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService, LikeService],
+  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService, LikeService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { LoginComponent } from './modules/login/login.component';
 import { PessoaFormComponent } from './modules/pessoa/pessoa.form.component';
 import { PessoaModule } from './modules/pessoa/pessoa.module';
 import { Routes, RouterModule } from '@angular/router';
@@ -13,11 +14,11 @@ import { HomeComponent } from './modules/home/home.component';
 
  const APP_ROUTES: Routes = [
 
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'pessoa', loadChildren: './modules/pessoa/pessoa.module#PessoaModule'},
   { path: 'provedor', loadChildren: './modules/provedor/provedor.module#ProvedorModule'},
-  { path: 'colaboracao', loadChildren: './modules/colaboracao/colaboracao.module#ColaboracaoModule'}
-
+  { path: 'colaboracao', loadChildren: './modules/colaboracao/colaboracao.module#ColaboracaoModule'},
+  { path: '', component: LoginComponent}
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

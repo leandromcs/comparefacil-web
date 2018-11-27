@@ -21,6 +21,7 @@ export class AvaliarColaboracaoDetail implements OnInit {
     colaboracao: Colaboracao;
     private subscription: Subscription;
     showDisable: boolean;
+    
 
     constructor (
         private route: ActivatedRoute,
@@ -30,6 +31,7 @@ export class AvaliarColaboracaoDetail implements OnInit {
 
     ngOnInit() {
         this.avaliacaoColaboracao =  new AvaliarColaboracao;
+        this.avaliacaoColaboracao.comentario = null;
         this.colaboracao = new Colaboracao;
         this.colaboracao.planoServico = new PlanoServico;
         this.colaboracao.planoServico.provedora = new Provedor;
@@ -46,7 +48,10 @@ export class AvaliarColaboracaoDetail implements OnInit {
     }
 
     avaliacao(res: string) {
-        if (this.avaliacaoColaboracao.comentario.length !== 0 || this.avaliacaoColaboracao.comentario !== null) {
+    this.avaliacaoColaboracao.comentario = '';
+    this.avaliacaoColaboracao.comentario.trim();
+    console.log(this.avaliacaoColaboracao.comentario.length)
+        if (!(this.avaliacaoColaboracao.comentario === null || this.avaliacaoColaboracao.comentario.length === 0)) {
             this.avaliacaoColaboracao.idColaboracao = this.colaboracao.id;
             this.avaliacaoColaboracao.idPessoa = null;
             this.avaliarColaboracaoService.create(this.avaliacaoColaboracao).subscribe();

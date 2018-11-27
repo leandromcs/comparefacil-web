@@ -7,7 +7,7 @@ import { Colaboracao } from './../colaboracao/colaboracao.model';
 import { ColaboracaoService } from './../colaboracao/colaboracao.service';
 import { Component, OnInit } from '@angular/core';
 import { Comentario } from '../comentario/comentario.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {MatIconRegistry} from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
   stars: number;
   numberLikes: number;
   numberDeslike: number;
-
+  cargo: string;
   constructor(private homeService: HomeService,
               private comentarioService: ComentarioService,
               private router: Router,
@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
       this.numberDeslike = res;
     });
 
-     // this.stars = (this.numberLikes - this.numberDeslike);
+     this.stars = this.numberLikes - this.numberDeslike;
   }
 
   findAllComentario(id: number) {
