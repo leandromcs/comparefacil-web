@@ -34,8 +34,9 @@ export class PessoaFormComponent implements OnInit {
 
   save() {
    if (this.pessoa.id === undefined){
-      this.pessoaService.create(this.pessoa).subscribe();
-      this.saved = true;
+      this.pessoaService.create(this.pessoa).subscribe( res => {
+        this.saved = true;
+      });
       return;
    }
     this.edited = true;

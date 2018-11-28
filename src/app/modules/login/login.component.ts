@@ -2,6 +2,7 @@ import { OnInit, Component } from '@angular/core';
 import { LoginService } from './login.service';
 import { Pessoa } from '../pessoa/pessoa.model';
 import { Router } from '@angular/router';
+import { mergeNsAndName } from '@angular/compiler';
 @Component({
   templateUrl: './login.component.html'
 })
@@ -24,13 +25,13 @@ pessoa: Pessoa;
         this.loginService.login(this.pessoa).subscribe(res => {
             if ( res != null) {
                 this.pessoa = res;
-                // document.cookie = 'email=' + this.pessoa.email;
-                // document.cookie = 'role=' + this.pessoa.cargo;
                 sessionStorage.setItem('email', this.pessoa.email);
                 sessionStorage.setItem('nome', this.pessoa.nome);
                 sessionStorage.setItem('role', this.pessoa.cargo);
-
-                this.router.navigate(['/home'], {queryParams: {cargo: this.pessoa.cargo}});
+                location.reload(); 
+                this.router.navigate(['/home']);
+            }else{
+                alert('Email ou Senha inválidas');
             }
         });
     }

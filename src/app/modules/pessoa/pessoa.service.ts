@@ -37,7 +37,7 @@ export class PessoaService {
     /**
    * Procura por pessoa apartir do email
    */
-  searchByEmail(email: string ) {
+  searchByEmail(email: string ): Observable<Pessoa> {
     return this.httpClient.get(this.localhost + this.apiUrl + '/pessoa/searchEmail/' + email);
   }
 

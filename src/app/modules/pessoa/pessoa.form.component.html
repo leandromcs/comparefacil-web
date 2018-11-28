@@ -6,25 +6,25 @@
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
               <input  type="text" size="30" [(ngModel)]="pessoa.nome" name="nome" pInputText>
-              <label for="float-input">Nome</label>
+              <label for="float-input">Nome *</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
               <input  type="text" size="30" [(ngModel)]="pessoa.cpf" name="cpf" mask="000.000.000-00" pInputText>
-              <label for="float-input">CPF</label>
+              <label for="float-input">CPF *</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
               <input  type="text" size="30" [(ngModel)]="pessoa.email" name="email"  pInputText>
-              <label for="float-input">Email</label>
+              <label for="float-input">Email *</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6">
             <span class="ui-float-label">
               <input  type="password" size="30" [(ngModel)]="pessoa.password" name="password" pInputText>
-              <label for="float-input">Password</label>
+              <label for="float-input">Password *</label>
             </span>
           </div>
           <div class="ui-g-12 ui-md-6" *ngIf="isEdit">

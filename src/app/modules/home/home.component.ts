@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { session } from './../../../environments/session';
 import { PessoaService } from './../pessoa/pessoa.service';
 import { Pessoa } from './../pessoa/pessoa.model';
@@ -125,18 +126,32 @@ export class HomeComponent implements OnInit {
     });
   }
 
+
+
+
+  /** Faz a busca aqui por cometario*/
   selecionado(event: Event, colaboracao: Colaboracao) {
+    
+    //Desabilita os botoes coloridos
+    this.isLike = false;
+    this.isDeslike = false;
+
     this.colaboracaoSelecionada = colaboracao;
 
-    this.searchPessoaByEmail(sessionStorage.getItem(session.email));
-    console.log(this.pessoa);
-    this.searchLikeByPessoa(this.pessoa.id);
-        if (this.like.flagLike === 'LIKE') {
-          this.isLike = true;
-        } else if (this.like.flagLike === 'DESLIKE') {
-          this.isDeslike = true;
-        }
-    this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
+    this.pessoaService.searchByEmail(sessionStorage.getItem(session.email)).subscribe( res => {
+      this.pessoa = res;
+          this.likeService.findLikeByPessoaAndColaboracao(this.pessoa.id, this.colaboracaoSelecionada.id).subscribe( res => {
+            this.like = res;
+                if (this.like.flagLike === 'LIKE') {
+                  this.isLike = true;
+                } else if (this.like.flagLike === 'DESLIKE') {
+                  this.isDeslike = true;
+                }
+          });
+    }); 
+    
+      
+     this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
     this.findAllComentario(this.colaboracaoSelecionada.id);
 
     this.displayDialog = true;
@@ -144,6 +159,12 @@ export class HomeComponent implements OnInit {
     event.preventDefault();
   }
 
+
+
+
+
+
+  /** Adiciona o comentario */
   concluir() {
     if (this.comentario.descricao != null) {
       this.findAllComentario(this.colaboracaoSelecionada.id);
@@ -159,7 +180,7 @@ export class HomeComponent implements OnInit {
 
   avaliar(res: string) {
     this.teste = 'indigo';
-    this.like.idPessoa = this.colaboracaoSelecionada.pessoa.id;
+    this.like.idPessoa = this.pessoa.id;
     this.like.idColaboracao = this.colaboracaoSelecionada.id;
     this.like.flagLike = res;
 
@@ -172,25 +193,23 @@ export class HomeComponent implements OnInit {
     }
 
     this.likeService.like(this.like).subscribe( res => {
-      this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
+        this.quantidadeCurtidas(this.colaboracaoSelecionada.id);
     });
 
   }
 
-                                         /*Funções especificas */
+                        /*Funções especificas */
 
   searchPessoaByEmail(email) {
     this.pessoaService.searchByEmail(email).subscribe( res => {
       this.comentario.pessoa = res;
-      this.pessoa = res;
-      console.log('uau:' + this.pessoa.id);
     });
-  }
-
-  searchLikeByPessoa(id: number) {
-    this.likeService.findLikeByPessoa(id).subscribe( res => {
+  } 
+  searchLikeByPessoa(idPessoa: number, idColaboracao: number) {
+    this.likeService.findLikeByPessoaAndColaboracao(idPessoa,idColaboracao).subscribe( res => {
       this.like = res;
     });
+
   }
 
 

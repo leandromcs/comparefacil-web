@@ -1,3 +1,4 @@
+import { UtilModule } from './util/util.module';
 import { session } from './../environments/session';
 import { LogoutComponent } from './modules/login/logout.component';
 import { LoginComponent } from './modules/login/login.component';
@@ -77,6 +78,7 @@ import { LoginService } from './modules/login/login.service';
     DialogModule,
     BlockUIModule,
     RatingModule,
+    UtilModule,
     NgxMaskModule.forRoot(),
     PRIMENG_IMPORTS,
     ScrollPanelModule

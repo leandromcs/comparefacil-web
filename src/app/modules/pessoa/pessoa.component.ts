@@ -39,7 +39,7 @@ export class PessoaComponent implements OnInit {
    */
   public procedimento(acao: string, id: any) {
 
-    if( acao === 'delete') {
+    if ( acao === 'delete') {
       return this.delete(id);
     }
      return this.router.navigate([this.baseUrl, id, acao]);

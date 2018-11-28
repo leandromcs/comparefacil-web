@@ -56,9 +56,9 @@
         </div>
     </ng-template>
 </p-dataView>
-<div>
-    <p-sidebar [(visible)]="displayDialog" [fullScreen]="true" [baseZIndex]="10000" [style]="{'background-color':'rgb(192, 192, 192,0.95)'}">
-         <!-- <p-scrollPanel [style]="{width: '2000px', height: '800px'}">  -->
+<div >
+    <p-sidebar [(visible)]="displayDialog" [fullScreen]="true" [baseZIndex]="10000" [style]="{'background-color':'rgb(192, 192, 192,0.95)'}" class="p-xl-12 ui-g-12 ui-md-12  ui-sm-12">
+         <p-scrollPanel [style]="{width: '2000px', height: '800px'}"> 
             <div class="ui-g  ui-md ui-fluid" *ngIf="colaboracaoSelecionada" >
      
                     <div class="ui-g-12" style="text-align:center" *ngIf=" colaboracaoSelecionada.imagem != null ">
@@ -75,7 +75,6 @@
 
                     <div class="ui-g-4"><b>Colaborador:  </b></div>
                     <div class="ui-g-8">{{colaboracaoSelecionada.pessoa.nome}}</div>
-        
                     <div class="ui-g-4"><b>Like: </b></div>
                     <div class="ui-g-8">
                           <div class="material-icons" (click)="avaliar('LIKE')" [ngStyle]="{'color': isLike? 'indigo' : '#333333'}">thumb_up</div> <b>{{numberLikes}}</b>
@@ -85,7 +84,7 @@
                     <div clas ="ui-g-4">Comentários: </div>
                     <div class="ui-g-12"></div>
                     <div class="ui-g ui-md-12"  *ngIf="showDiv">
-                    <div class="ui-g-12 ui-md-6">
+                    <div class="ui-g-12 ui-md-6  ui-sm-12">
                         <p-scrollPanel [style]="{width: '800px', height: '300px'}">
                             <div *ngFor="let com of comentarios" >
                                     <p-fieldset  legend={{com.pessoa.nome}}>
@@ -110,7 +109,7 @@
                 <p-footer>
                         <button pButton type="button" label="Confirmar" (click)="concluir()"></button>
                 </p-footer>
-            <!-- </p-scrollPanel>   -->
+             </p-scrollPanel> 
     </p-sidebar>
 </div>
 

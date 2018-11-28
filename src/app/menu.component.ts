@@ -1,6 +1,6 @@
+import { session } from './../environments/session';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html'
@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
       this.cargo = params['cargo'];
 
 
-  if (sessionStorage.getItem('role') === 'COLABORADOR') {
+  if (sessionStorage.getItem(session.role) === 'COLABORADOR') {
     this.items = [
        {
                 label: 'Menu',
