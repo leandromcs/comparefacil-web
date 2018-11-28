@@ -28,3 +28,26 @@ input{
 .pi{
     font-size: 2em;
 }
+
+body .ui-rating a{
+    color: blueviolet !important;
+}
+
+body .ui-button {
+    background-color: blueviolet !important;
+    border: white !important;
+}
+
+body .ui-selectbutton .ui-button .ui-button-icon-left {
+    color: white !important;
+}
+
+body .ui-paginator .ui-paginator-pages .ui-paginator-page.ui-state-active {
+    background-color: blueviolet !important;
+}
+
+body .ui-fieldset {
+    border-color: #694DB5 !important;
+    color: black !important;
+    background-color:transparent !important; 
+}

@@ -22,8 +22,14 @@ pessoa: Pessoa;
         this.pessoa.email = email;
         this.pessoa.password = password;
         this.loginService.login(this.pessoa).subscribe(res => {
-            if(res != null){
+            if ( res != null) {
                 this.pessoa = res;
+                // document.cookie = 'email=' + this.pessoa.email;
+                // document.cookie = 'role=' + this.pessoa.cargo;
+                sessionStorage.setItem('email', this.pessoa.email);
+                sessionStorage.setItem('nome', this.pessoa.nome);
+                sessionStorage.setItem('role', this.pessoa.cargo);
+
                 this.router.navigate(['/home'], {queryParams: {cargo: this.pessoa.cargo}});
             }
         });

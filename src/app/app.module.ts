@@ -1,3 +1,5 @@
+import { session } from './../environments/session';
+import { LogoutComponent } from './modules/login/logout.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PessoaService } from './modules/pessoa/pessoa.service';
 import { HomeComponent } from './modules/home/home.component';
@@ -52,7 +54,8 @@ import { LoginService } from './modules/login/login.service';
     TopbarComponent,
     HomeComponent,
     NavbarComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent,
     ],
   imports: [
     ButtonModule,
@@ -79,7 +82,7 @@ import { LoginService } from './modules/login/login.service';
     ScrollPanelModule
 
   ],
-  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService, LikeService, LoginService],
+  providers: [ConfirmationService, PessoaService, HomeService, ComentarioService, LikeService, LoginService, PessoaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

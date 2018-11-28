@@ -14,6 +14,6 @@ export class Colaboracao {
     public dataAtualizacao?: Data,
     public pessoa?: Pessoa,
     public planoServico?: PlanoServico,
-    public logo?: File
+    public imagem?: string
     ) {}
 }

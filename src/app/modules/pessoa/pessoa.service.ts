@@ -34,5 +34,12 @@ export class PessoaService {
     return this.httpClient.put<Pessoa>(this.localhost+this.apiUrl+this.pessoaUrl,pessoa)
   }
 
+    /**
+   * Procura por pessoa apartir do email
+   */
+  searchByEmail(email: string ) {
+    return this.httpClient.get(this.localhost + this.apiUrl + '/pessoa/searchEmail/' + email);
+  }
+
 
 }

@@ -23,4 +23,8 @@ likeUrl = '/like';
     getDeslike(id: number): Observable<any> {
         return this.httpClient.get(this.localhost + this.apiUrl + this.likeUrl + '/countDeslike/' + id);
     }
+
+    findLikeByPessoa(id: number): Observable<Like> {
+        return this.httpClient.get(this.localhost + this.apiUrl + this.likeUrl + '/likeByPessoa/' + id);
+    }
 }

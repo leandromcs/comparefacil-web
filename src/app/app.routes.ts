@@ -1,3 +1,4 @@
+import { LogoutComponent } from './modules/login/logout.component';
 import { LoginComponent } from './modules/login/login.component';
 import { PessoaFormComponent } from './modules/pessoa/pessoa.form.component';
 import { PessoaModule } from './modules/pessoa/pessoa.module';
@@ -18,7 +19,10 @@ import { HomeComponent } from './modules/home/home.component';
   { path: 'pessoa', loadChildren: './modules/pessoa/pessoa.module#PessoaModule'},
   { path: 'provedor', loadChildren: './modules/provedor/provedor.module#ProvedorModule'},
   { path: 'colaboracao', loadChildren: './modules/colaboracao/colaboracao.module#ColaboracaoModule'},
-  { path: '', component: LoginComponent}
+  { path: '', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent}
+
+
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(APP_ROUTES);

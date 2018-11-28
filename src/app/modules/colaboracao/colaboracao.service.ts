@@ -1,3 +1,4 @@
+import { Pessoa } from './../pessoa/pessoa.model';
 import { PlanoServico } from './../plano/plano.model';
 import { Colaboracao } from './colaboracao.model';
 import { Injectable } from '@angular/core';
@@ -55,6 +56,9 @@ export class ColaboracaoService {
     console.log(file);
     return this.httpClient.post(this.localhost + this.apiUrl + this.colaboracaoUrl + '/image', body, headers);
   }
+
+
+
 
 
 }

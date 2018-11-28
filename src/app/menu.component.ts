@@ -1,4 +1,4 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,15 +9,19 @@ export class MenuComponent implements OnInit {
 
   items: any[];
   cargo: string;
+  isLogin: boolean;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private routerUrl: Router) { }
   ngOnInit() {
+
+    this.isLogin = true;
+    this.loginUrl(this.routerUrl.url);
 
     this.route.queryParams.subscribe(params => {
       this.cargo = params['cargo'];
-      console.log(this.cargo);
 
-  if (this.cargo === 'COLABORADOR') {
+
+  if (sessionStorage.getItem('role') === 'COLABORADOR') {
     this.items = [
        {
                 label: 'Menu',
@@ -46,13 +50,13 @@ export class MenuComponent implements OnInit {
                         ]
                     },
                     {separator: true},
-                    {label: 'Logout', icon: 'pi pi-fw pi-times'},
+                    {label: 'Logout', icon: 'pi pi-fw pi-times', routerLink: '/logout'},
                     {label: 'Inicio', icon: 'pi pi-home', routerLink: '/home'}
                 ]
             }
 
     ];
-  } else if(this.cargo === 'ADMINISTRADOR'){
+  } else if (sessionStorage.getItem('role') === 'ADMINISTRADOR') {
     this.items = [{
       label: 'Menu',
       icon: 'pi pi-th-large',
@@ -70,13 +74,20 @@ export class MenuComponent implements OnInit {
               ]
           },
           {separator: true},
-          {label: 'Logout', icon: 'pi pi-fw pi-times'},
+          {label: 'Logout', icon: 'pi pi-fw pi-times', routerLink: '/logout'},
           {label: 'Inicio', icon: 'pi pi-home', routerLink: '/home'}
       ]
   }];
   }
 
 });
+  }
+
+
+  loginUrl(url: string) {
+    if (url === '/') {
+      return this.isLogin = false;
+    }
   }
 
 }

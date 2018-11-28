@@ -22,9 +22,9 @@
     <ng-template let-colaboracao pTemplate="listItem">
         <div class="ui-g" style="padding: 2em;border-bottom: 1px solid #d9d9d9">
             <!-- Campo para imagem -->
-            <!-- <div class="ui-g-12 ui-md-3" style="text-align:center">
-                <img src="assets/showcase/images/demo/car/{{car.brand}}.png">
-            </div> -->
+            <div class="ui-g-12 ui-md-3" style="text-align:center">
+                <img src="data:image/png;base64,{{colaboracao.imagem}}" style="max-width: 200px; max-height: 200px;">
+            </div>
             <div class="ui-g-12 ui-md-8">
                 <div class="ui-g">
                     <div class="ui-g-2 ui-sm-6">Plano: </div>
@@ -49,67 +49,69 @@
     <ng-template let-colaboracao pTemplate="gridItem">
         <div style="padding:.5em" class="ui-g-12 ui-md-3">
             <p-panel [style]="{'text-align':'center'}">
-                <!-- <img src="assets/showcase/images/demo/car/{{car.brand}}.png" width="60"> -->
-                <div class="car-detail">{{colaboracao.planoServico.nome}}</div>
+                    <img src="data:image/png;base64,{{colaboracao.imagem}}" style="max-width: 200px; max-height: 200px;">                <div class="car-detail">{{colaboracao.planoServico.nome}}</div>
                 <hr class="ui-widget-content" style="border-top:0">
                 <button pButton type="button" icon="pi pi-search" (click)="selecionado($event, colaboracao)" style="margin-top:0"></button>
             </p-panel>
         </div>
     </ng-template>
 </p-dataView>
-<div style="">
-        <p-dialog header="Visualizar" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225" (onAfterHide)="onDialogHide()" [width]="1100"  [height]="30"> 
-                <div class="ui-g ui-fluid" *ngIf="colaboracaoSelecionada" >
+<div>
+    <p-sidebar [(visible)]="displayDialog" [fullScreen]="true" [baseZIndex]="10000" [style]="{'background-color':'rgb(192, 192, 192,0.95)'}">
+         <!-- <p-scrollPanel [style]="{width: '2000px', height: '800px'}">  -->
+            <div class="ui-g  ui-md ui-fluid" *ngIf="colaboracaoSelecionada" >
      
-                        <!-- <div class="ui-g-12" style="text-align:center">
-                            <img src="assets/showcase/images/demo/car/{{selectedCar.brand}}.png">
-                        </div> -->   
-                        <div class="ui-g-4">Plano: </div>
-                        <div class="ui-g-8">{{colaboracaoSelecionada.nome}}</div>
-                
-                        <div class="ui-g-4">Descricao: </div>
-                        <div class="ui-g-8">{{colaboracaoSelecionada.descricao}}</div>
-                
-                        <div class="ui-g-4">Data:  </div>
-                        <div class="ui-g-8">{{colaboracaoSelecionada.dataCriacao | date:'dd/MM/yyyy'}}</div>
+                    <div class="ui-g-12" style="text-align:center" *ngIf=" colaboracaoSelecionada.imagem != null ">
+                            <img src="data:image/png;base64,{{colaboracaoSelecionada.imagem}}" style="max-width: 500px; max-height: 200px; float: left;">
+                    </div>  
+                    <div class="ui-g-4"><b>Plano: </b></div>
+                    <div class="ui-g-8">{{colaboracaoSelecionada.nome}}</div>
             
-                        <div class="ui-g-4">Like: </div>
-                        <div class="ui-g-8">
-                              <!-- <div class="material-icons" (click)="avaliar('LIKE')" style="padding-right: 20px; color: indigo">thumb_up</div> 
-                              <div class="material-icons" (click)="avaliar('DESLIKE')" style="padding-right: 20px; color: indigo">thumb_up</div>   -->
-                              <div class="material-icons" (click)="avaliar('LIKE')">thumb_up</div> <b>{{numberLikes}}</b>
-                              <div class="material-icons" (click)="avaliar('DESLIKE')" style="padding-left: 20px">thumb_down</div> <b>{{numberDeslike}}</b> 
-                        </div>
-                        <div class="ui-g-12"></div>
-                        <div clas ="ui-g-4">Comentários: </div>
-                        <div class="ui-g-12"></div>
-                        <div class="ui-g" *ngIf="showDiv">
-                        <div class="ui-g-12 ui-md-4">
-                            <p-scrollPanel [style]="{width: '800px', height: '200px'}">
-                                <div >
-                                        <p-fieldset *ngFor="let comentario of comentarios" >
-                                            {{comentario.descricao}}
-                                        </p-fieldset>
-                                </div>          
-                            </p-scrollPanel>
-                        </div>
-                     </div>
-                
-                     <div class="ui-g-4">Fazer um comentário:  </div>
-                     <div class="ui-g ui-fluid">
-                            <div class="ui-g-12">
-                              <div class="ui-g-12 ui-md-12">
-                                 <span class="ui-float-label">
-                                        <div class="ui-g-12"><textarea [rows]="5" [cols]="94"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao" class="ui-inputtext ui-corner-all ui-state-default ui-widget" ></textarea></div>
-                                </span>
-                                </div>
-                             </div>
-                         </div>
+                    <div class="ui-g-4"><b>Descricao: </b></div>
+                    <div class="ui-g-8">{{colaboracaoSelecionada.descricao}}</div>
+            
+                    <div class="ui-g-4"><b>Data:  </b></div>
+                    <div class="ui-g-8">{{colaboracaoSelecionada.dataCriacao | date:'dd/MM/yyyy'}}</div>
+
+                    <div class="ui-g-4"><b>Colaborador:  </b></div>
+                    <div class="ui-g-8">{{colaboracaoSelecionada.pessoa.nome}}</div>
+        
+                    <div class="ui-g-4"><b>Like: </b></div>
+                    <div class="ui-g-8">
+                          <div class="material-icons" (click)="avaliar('LIKE')" [ngStyle]="{'color': isLike? 'indigo' : '#333333'}">thumb_up</div> <b>{{numberLikes}}</b>
+                          <div class="material-icons" (click)="avaliar('DESLIKE')" style ="padding-left: 20px" [ngStyle]="{'color': isDeslike? 'indigo' : '#333333'}">thumb_down</div> <b>{{numberDeslike}}</b> 
                     </div>
-    <p-footer>
-            <button pButton type="button" label="Confirmar" (click)="concluir()"></button>
-    </p-footer>
-</p-dialog>
+                    <div class="ui-g-12"></div>
+                    <div clas ="ui-g-4">Comentários: </div>
+                    <div class="ui-g-12"></div>
+                    <div class="ui-g ui-md-12"  *ngIf="showDiv">
+                    <div class="ui-g-12 ui-md-6">
+                        <p-scrollPanel [style]="{width: '800px', height: '300px'}">
+                            <div *ngFor="let com of comentarios" >
+                                    <p-fieldset  legend={{com.pessoa.nome}}>
+                                        {{com.descricao}}
+                                    </p-fieldset>
+                            </div>          
+                        </p-scrollPanel>
+                    </div>
+                 </div>
+            
+                 <div class="ui-g-4  ui-md-12">Fazer um comentário:  </div>
+                 <div class="ui-g ui-fluid">
+                        <div class="ui-g-12">
+                          <div class="ui-g-12 ui-md-12">
+                             <span class="ui-float-label">
+                                    <div class="ui-g-12"><textarea [rows]="5" [cols]="94"  type="text" maxlength="4000"  name="comentario" pInputText [(ngModel)]="comentario.descricao" class="ui-inputtext ui-corner-all ui-state-default ui-widget" ></textarea></div>
+                            </span>
+                            </div>
+                         </div>
+                     </div>
+                </div>
+                <p-footer>
+                        <button pButton type="button" label="Confirmar" (click)="concluir()"></button>
+                </p-footer>
+            <!-- </p-scrollPanel>   -->
+    </p-sidebar>
 </div>
 
 
