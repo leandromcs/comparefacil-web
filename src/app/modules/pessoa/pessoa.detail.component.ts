@@ -14,6 +14,7 @@ export class PessoaDetailComponent implements OnInit, OnDestroy {
 
     pessoa: Pessoa;
     private subscription: Subscription;
+    isView: boolean;
 
     constructor(
         private pessoaService: PessoaService,
@@ -26,6 +27,7 @@ export class PessoaDetailComponent implements OnInit, OnDestroy {
         // Busca o id na url
        this.subscription = this.route.params.subscribe((params) => {
         this.getPessoaById(params['id']);
+        this.isView = true;
         });
     }
 

@@ -1,3 +1,5 @@
+import { MessageService } from 'primeng/api';
+import { UtilModule } from './../../util/util.module';
 import { PessoaComponent } from './pessoa.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,6 +19,7 @@ import { PessoaDetailComponent } from './pessoa.detail.component';
 import {DialogModule} from 'primeng/dialog';
 import {BlockUIModule} from 'primeng/blockui';
 import {NgxMaskModule} from 'ngx-mask'
+import {ToastModule} from 'primeng/toast';
 
 
 
@@ -34,7 +37,9 @@ import {NgxMaskModule} from 'ngx-mask'
     CardModule,
     DialogModule,
     BlockUIModule,
-    NgxMaskModule
+    NgxMaskModule,
+    UtilModule,
+    ToastModule
 
   ],
   declarations: [
@@ -43,7 +48,7 @@ import {NgxMaskModule} from 'ngx-mask'
    PessoaDetailComponent
 
   ],
-  providers: [PessoaService],
+  providers: [PessoaService,MessageService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class PessoaModule {}

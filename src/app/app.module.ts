@@ -44,6 +44,7 @@ import {RatingModule} from 'primeng/rating';
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import { LikeService } from './modules/like/like.service';
 import { LoginService } from './modules/login/login.service';
+import {ToastModule} from 'primeng/toast';
 
 
 
@@ -78,6 +79,7 @@ import { LoginService } from './modules/login/login.service';
     DialogModule,
     BlockUIModule,
     RatingModule,
+    ToastModule,
     UtilModule,
     NgxMaskModule.forRoot(),
     PRIMENG_IMPORTS,

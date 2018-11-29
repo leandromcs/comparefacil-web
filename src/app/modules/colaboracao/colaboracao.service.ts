@@ -48,8 +48,6 @@ export class ColaboracaoService {
   }
 
   uploadFile(file: File): any {
-    // const fileBase64 = btoa(file).;
-    // console.log(URL.createObjectURL(fileBase64));
     const headers: any = {'Content-Type': 'multipart/form-data'};
     const body = new FormData();
     body.append('file', file);

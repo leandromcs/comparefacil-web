@@ -13,6 +13,7 @@ import { HomeComponent } from './home.component';
 import { HomeService } from './home.service';
 import { ComentarioService } from '../comentario/comentario.service';
 import { LikeService } from '../like/like.service';
+import {MatSnackBar} from '@angular/material';
 
 
 // import {pessoaRoute} from '../pessoa/pessoa.route';
@@ -33,7 +34,6 @@ import { LikeService } from '../like/like.service';
   declarations: [
     HomeComponent
   ],
-  providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeModule {}

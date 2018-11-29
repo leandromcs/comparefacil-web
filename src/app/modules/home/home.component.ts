@@ -43,8 +43,7 @@ export class HomeComponent implements OnInit {
     private comentarioService: ComentarioService,
     private router: Router,
     private likeService: LikeService,
-    private pessoaService: PessoaService) { }
-
+    private pessoaService: PessoaService) {}
 
   ngOnInit() {
     this.pessoa =  new Pessoa;
@@ -118,10 +117,10 @@ export class HomeComponent implements OnInit {
   findAllComentario(id: number) {
     this.comentarioService.getAllComentariosByColaboracaoId(id).subscribe(res => {
       this.comentarios = res;
-      if (this.comentarios.length === 0) {
-        console.log('BATEU')
-        return this.showDiv = false;
-      }
+      //if (this.comentarios.length) {
+      //  console.log('BATEU')
+       // return this.showDiv = false;
+     // }
       this.showDiv = true;
     });
   }
@@ -161,26 +160,30 @@ export class HomeComponent implements OnInit {
 
 
 
-
-
-
   /** Adiciona o comentario */
   concluir() {
     if (this.comentario.descricao != null) {
-      this.findAllComentario(this.colaboracaoSelecionada.id);
+     // this.findAllComentario(this.colaboracaoSelecionada.id);
       this.comentario.colaboracao = this.colaboracaoSelecionada;
-      this.searchPessoaByEmail(sessionStorage.getItem(session.email));
-      this.comentarioService.create(this.comentario).subscribe();
-      this.comentario.descricao = null; // Limpar o campo
-      return this.findAllComentario(this.colaboracaoSelecionada.id);
-
+      this.pessoaService.searchByEmail(sessionStorage.getItem(session.email)).subscribe( res => {
+        this.comentario.pessoa = res;
+      });
+      alert(this.comentario.pessoa.nome);
+      this.comentarioService.create(this.comentario).subscribe(res => {
+        this.comentario.descricao = null; // Limpar o campo
+      });
+      this.findAllComentario(this.colaboracaoSelecionada.id);
     }
-    return this.displayDialog = false;
+  //  return this.displayDialog = false; DESABILITAR O COMENTARIO
   }
 
   avaliar(res: string) {
+
+  
     this.teste = 'indigo';
-    this.like.idPessoa = this.pessoa.id;
+    console.log(this.pessoa.id)
+    this.like.idPessoa = this.pessoa.id; // RESOLVER O PROBLEMA DE STAR SETANDO NULL EM IDPESSOA
+    console.log(this.like.idPessoa)
     this.like.idColaboracao = this.colaboracaoSelecionada.id;
     this.like.flagLike = res;
 

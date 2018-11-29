@@ -30,9 +30,6 @@ export class MenuComponent implements OnInit {
                         label: 'Acessar',
                         icon: 'pi pi-fw pi-plus',
                         items: [
-                            {label: 'Pessoa', icon: 'pi pi-fw pi-external-link', routerLink: '/pessoa', items: [
-                                  {label: 'Cadastrar Pessoa', icon: 'pi pi-fw pi-plus', routerLink: '/pessoa/new'}
-                            ]},
                             {
                                label: 'Provedor',
                                icon: 'pi pi-fw pi-external-link',
@@ -61,14 +58,21 @@ export class MenuComponent implements OnInit {
       label: 'Menu',
       icon: 'pi pi-th-large',
       items: [{
-              label: 'Acessar',
+              label: 'Controle',
               icon: 'pi pi-fw pi-plus',
               items: [
                   {
-                    label: 'Administrador',
+                    label: 'Colaborações',
                     icon: 'pi pi-fw pi-plus',
                     items: [{
-                      label: 'Avaliar', icon: 'pi pi-fw pi-external-link', routerLink: '/colaboracao/avaliar'
+                      label: 'Avaliar', icon: 'pi pi-fw pi-external-link', routerLink: '/colaboracao/avaliar',
+                     }]
+                  },
+                  {
+                    label: 'Usuários',
+                    icon: 'pi pi-fw pi-plus',
+                    items: [{
+                      label: 'Consultar', icon: 'pi pi-fw pi-external-link', routerLink: '/pessoa',
                      }]
                   }
               ]
@@ -77,6 +81,16 @@ export class MenuComponent implements OnInit {
           {label: 'Logout', icon: 'pi pi-fw pi-times', routerLink: '/logout'},
           {label: 'Inicio', icon: 'pi pi-home', routerLink: '/home'}
       ]
+  }];
+  } else if( sessionStorage.getItem(session.role) === null) {
+    this.items = [{
+      label: 'Menu',
+      icon: 'pi pi-th-large',
+      items: [{
+              label: 'Registrar',
+              icon: 'pi pi-fw pi-plus',
+              routerLink: '/pessoa/new'
+      }]
   }];
   }
 

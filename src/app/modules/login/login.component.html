@@ -1,41 +1,41 @@
-    <div col-2>
-<p-card header="Simple Card" [style]="{width: '350px', height: '350px', margin: '4% 23% auto '}" col-2 col-sm-2>
-      <div class="ui-g ui-fluid" style="justify-content: center;">
-        <div class="ui-g-12 ui-md-12 ui-sm-12">
+<div col-2>
+  <p-card header="Simple Card" [style]="{width: '350px', height: '350px', margin: '4% 23% auto '}" col-2 col-sm-2>
+    <div class="ui-g ui-fluid" style="justify-content: center;">
+      <div class="ui-g-12 ui-md-12 ui-sm-12">
 
-          <div class="card card-w-title login-panel" style="margin: 0px auto 0 auto; min-height: 400px;" *ngIf="!authenticated" col-2>
+        <div class="card card-w-title login-panel" style="margin: 0px auto 0 auto; min-height: 400px;" *ngIf="!authenticated"
+          col-2>
 
-            <form name="loginForm" role="form">
+          <form name="loginForm" role="form">
 
-              <h1>Login</h1>
+            <h1>Login</h1>
 
-              <div class="ui-g" style="justify-content: center;">
+            <div class="ui-g" style="justify-content: center;">
 
-                <div class="ui-g-12 ui-md-12 ui-sm-12" style="margin-bottom: 25px;">
-                  <span class="md-inputfield">
-                    <input required type="text" name="email" [(ngModel)]="pessoa.email" pInputText />
-                    <label>Email</label>
-                  </span>
-                </div>
-
-                <div class="ui-g-12 ui-md-12 ui-sm-12" style="margin-bottom: 25px;">
-                  <span class="md-inputfield">
-                    <input required pPassword type="password" name="password" [(ngModel)]="pessoa.password" [feedback]="false" />
-                    <label>Senha *</label>
-                  </span>
-                </div>
-
+              <div class="ui-g-12 ui-md-12 ui-sm-12" style="margin-bottom: 25px;">
+                <span class="md-inputfield">
+                  <input required type="text" name="email" [(ngModel)]="pessoa.email" pInputText />
+                  <label>Email</label>
+                </span>
               </div>
 
-              <div class="ui-g-12" style="justify-content: center">
+              <div class="ui-g-12 ui-md-12 ui-sm-12" style="margin-bottom: 25px;">
+                <span class="md-inputfield">
+                  <input required pPassword type="password" name="password" [(ngModel)]="pessoa.password" [feedback]="false" />
+                  <label>Senha *</label>
+                </span>
+              </div>
+            </div>
+            <div class="ui-g">
+              <div class="ui-g-12 ui-md-12" style="justify-content: center">
                 <button pButton (click)="loginAuth(pessoa.email,pessoa.password)" label="Login"></button>
               </div>
-            </form>
-          </div>
-
+            </div>
+          </form>
         </div>
-      </div>
-    </p-card>
 
+      </div>
     </div>
-    
+  </p-card>
+
+</div>
